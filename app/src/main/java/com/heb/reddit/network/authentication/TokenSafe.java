@@ -1,4 +1,4 @@
-package com.heb.reddit.network;
+package com.heb.reddit.network.authentication;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -21,7 +21,7 @@ public class TokenSafe {
     public void saveToken(String token) {
         sharedPreferences.edit()
                 .putString(TOKEN, token)
-                .commit();
+                .apply();
     }
 
     public String retrieveToken() {

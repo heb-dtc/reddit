@@ -1,8 +1,8 @@
-package com.heb.reddit.network;
+package com.heb.reddit.network.authentication;
 
 import com.google.gson.annotations.SerializedName;
 
-public class TokenResponse {
+class TokenResponse {
     @SerializedName("access_token")
     String accessToken;
 

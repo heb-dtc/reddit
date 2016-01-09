@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.heb.reddit.network.AuthenticationServiceClient;
-import com.heb.reddit.network.TokenSafe;
+import com.heb.reddit.network.authentication.AuthenticationServiceClient;
+import com.heb.reddit.network.authentication.TokenSafe;
 
 public class HomeActivity extends AppCompatActivity {
 

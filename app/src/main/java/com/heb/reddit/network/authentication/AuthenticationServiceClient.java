@@ -1,4 +1,4 @@
-package com.heb.reddit.network;
+package com.heb.reddit.network.authentication;
 
 import android.util.Log;
 

@@ -1,4 +1,4 @@
-package com.heb.reddit.network;
+package com.heb.reddit.network.authentication;
 
 import com.squareup.okhttp.Authenticator;
 import com.squareup.okhttp.Credentials;
@@ -11,7 +11,7 @@ import java.net.Proxy;
 
 import retrofit.client.OkClient;
 
-public class RedditAuthenticator implements Authenticator {
+class RedditAuthenticator implements Authenticator {
     private static final String CLIENT_ID = "S0jNUnPTkDvJNQ";
     private static final String CLIENT_SECRET = "";
 

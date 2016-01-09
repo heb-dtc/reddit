@@ -1,4 +1,4 @@
-package com.heb.reddit.network;
+package com.heb.reddit.network.authentication;
 
 import java.nio.charset.Charset;
 import java.util.UUID;
@@ -8,7 +8,7 @@ import retrofit.RestAdapter;
 import retrofit.mime.TypedByteArray;
 import retrofit.mime.TypedInput;
 
-public class AuthenticationService {
+class AuthenticationService {
     private static final String BASE_URL = "https://www.reddit.com";
     private static final String REQUEST_BODY = "grant_type=https://oauth.reddit.com/grants/installed_client&device_id=";
 
