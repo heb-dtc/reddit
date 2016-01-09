@@ -9,8 +9,10 @@ import retrofit.client.Response;
 public class AuthenticationServiceClient implements Callback<TokenResponse> {
     private static final String TAG = AuthenticationServiceClient.class.getCanonicalName();
     private final AuthenticationService service;
+    private final TokenSafe tokenSafe;
 
-    public AuthenticationServiceClient() {
+    public AuthenticationServiceClient(TokenSafe tokenSafe) {
+        this.tokenSafe = tokenSafe;
         this.service = AuthenticationService.newInstance(this);
     }
 
@@ -21,12 +23,13 @@ public class AuthenticationServiceClient implements Callback<TokenResponse> {
     @Override
     public void success(TokenResponse tokenResponse, Response response) {
         if (tokenResponse != null) {
-            Log.d(TAG, "success: " + tokenResponse.accessToken);
+            Log.d(TAG, "Token retrieval success: " + tokenResponse.accessToken);
+            tokenSafe.saveToken(tokenResponse.accessToken);
         }
     }
 
     @Override
     public void failure(RetrofitError error) {
-        Log.d(TAG, "failed: " + error.getMessage());
+        Log.d(TAG, "Token retrieval failure: " + error.getMessage());
     }
 }

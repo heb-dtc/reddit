@@ -15,4 +15,11 @@
         android:layout_height="wrap_content"
         android:text="Authenticate" />
 
+    <Button
+        android:id="@+id/show_token_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/authenticate_button"
+        android:text="Show token" />
+
 </RelativeLayout>
