@@ -8,12 +8,15 @@ import android.widget.Toast;
 
 import com.heb.reddit.network.authentication.AuthenticationServiceClient;
 import com.heb.reddit.network.authentication.TokenSafe;
+import com.heb.reddit.network.content.ContentServiceClient;
 
 public class HomeActivity extends AppCompatActivity {
-
     private Button authenticateButton;
     private Button showTokenButton;
+    private Button fetchContentButton;
+
     private AuthenticationServiceClient serviceClient;
+    private ContentServiceClient contentServiceClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,7 @@ public class HomeActivity extends AppCompatActivity {
 
         authenticateButton = (Button) findViewById(R.id.authenticate_button);
         showTokenButton = (Button) findViewById(R.id.show_token_button);
+        fetchContentButton = (Button) findViewById(R.id.fetch_content_button);
 
         final TokenSafe tokenSafe = TokenSafe.newInstance(getApplicationContext());
         serviceClient = new AuthenticationServiceClient(tokenSafe);
@@ -38,6 +42,15 @@ public class HomeActivity extends AppCompatActivity {
                 String token = tokenSafe.retrieveToken();
 
                 Toast.makeText(getApplicationContext(), "Current token is: " + token, Toast.LENGTH_LONG).show();
+            }
+        });
+
+        contentServiceClient = new ContentServiceClient(tokenSafe);
+        fetchContentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                contentServiceClient.fetchPageContent("new");
+                contentServiceClient.fetchSubRedditContent("tifu");
             }
         });
     }
